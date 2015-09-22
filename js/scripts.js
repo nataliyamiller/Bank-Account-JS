@@ -53,9 +53,10 @@ $(document).ready(function(){
       $(addMoney()).insertBefore("#add-more-money");
       $(this).off();
       // $(this).click(function(){
-      $(this).submit(function(event) {
+      $("#add-more-money").click(function(event) {
         var enteredDeposit = parseInt($("input#amount1").val());
         var newBalance = newAccount.addDeposit(enteredDeposit);
+        $("#show-account-info p").text("Your current account balance: $" + newBalance);
       });
       // });
     });
