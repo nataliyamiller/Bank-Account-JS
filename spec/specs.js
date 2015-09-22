@@ -3,7 +3,6 @@ describe('BankAccount', function() {
     var testBankAccount = new BankAccount("Nata", "Miller", 100)
     expect(testBankAccount.firstName).to.equal("Nata");
     expect(testBankAccount.lastName).to.equal("Miller");
-    expect(testBankAccount.initialDeposit).to.equal(100);
     expect(testBankAccount.balance).to.equal(100);
     expect(testBankAccount.withdrawal).to.equal(0);
   });
@@ -13,10 +12,9 @@ describe('BankAccount', function() {
     expect(testBankAccount.fullName()).to.equal("Nata Miller");
   });
 
-  it("returns the remaining balance on the account", function() {
+  it("returns the remaining balance after the withdrawal", function() {
     var testBankAccount = new BankAccount("Nata", "Miller", 100);
-    expect(testBankAccount.remainingBalance()).to.equal(100);
+    expect(testBankAccount.withdrawMoney(50)).to.equal(50);
+    expect(testBankAccount.withdrawal).to.equal(50);
   });
-
-  // it("returns the remaining balance")
 });
