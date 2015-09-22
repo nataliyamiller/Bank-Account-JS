@@ -13,17 +13,16 @@ BankAccount.prototype.addDeposit = function(newDeposit) {
 }
 
 BankAccount.prototype.withdrawMoney = function(amount) {
-  // this.withdrawal.push(amount);
   return this.balance -= amount;
 }
 
 function addMoney() {
   return  '<div id="show-form-1">' +
           '<h2>Deposit money:</h2>'+
-          '<form id="add-more-money">' +
+          '<form id="add-another-deposit">' +
           '<div class="form-group">' +
           '<label for="amount1"> Enter amount to be deposited </label>' +
-          '<input type="number" class="amount1">' +
+          ' <input type="number" id="amount1">' +
           '</div>' +
           '</form>' +
           '</div>';
@@ -35,6 +34,8 @@ function resetFields() {
   $("input#deposit-amount").val("");
   $("#show-form").show();
 }
+
+
 
 
 $(document).ready(function(){
@@ -49,12 +50,13 @@ $(document).ready(function(){
     $("#show-account-info h2").text("Welcome, " + newAccount.fullName());
     $("#show-account-info p").text("Your current account balance: $" + newAccount.balance);
     $("#add-more-money").click(function() {
-      $(this).prepend(addMoney());
+      $(addMoney()).insertBefore("#add-more-money");
       $(this).off();
       // $(this).click(function(){
-      // $("form#add-more-money").submit(function(event) {
-      //   var newDeposit =
-      // })
+      $(this).submit(function(event) {
+        var enteredDeposit = parseInt($("input#amount1").val());
+        var newBalance = newAccount.addDeposit(enteredDeposit);
+      });
       // });
     });
 
