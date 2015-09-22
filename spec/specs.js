@@ -6,4 +6,9 @@ describe('BankAccount', function() {
     expect(testBankAccount.initialDeposit).to.equal(100);
     expect(testBankAccount.withdrawal).to.equal(0);
   });
+
+  it("adds the fullName method to all bank accounts", function() {
+    var testBankAccount = new BankAccount("Nata", "Miller", 100);
+    expect(testBankAccount.fullName()).to.equal("Nata Miller");
+  });
 });
