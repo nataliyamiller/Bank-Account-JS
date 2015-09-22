@@ -4,7 +4,6 @@ describe('BankAccount', function() {
     expect(testBankAccount.firstName).to.equal("Nata");
     expect(testBankAccount.lastName).to.equal("Miller");
     expect(testBankAccount.balance).to.equal(100);
-    expect(testBankAccount.withdrawal).to.eql([]);
   });
 
   it("adds the fullName method to all bank accounts", function() {
@@ -15,6 +14,12 @@ describe('BankAccount', function() {
   it("returns the remaining balance after the withdrawal", function() {
     var testBankAccount = new BankAccount("Nata", "Miller", 100);
     expect(testBankAccount.withdrawMoney(50)).to.equal(50);
-    expect(testBankAccount.withdrawal).to.eql([50]);
+    expect(testBankAccount.balance).to.equal(50);
+  });
+
+  it("returns a new balance after another deposit has been made", function() {
+    var testBankAccount = new BankAccount("Nata", "Miller", 100);
+    expect(testBankAccount.addDeposit(900)).to.equal(1000);
+    expect(testBankAccount.balance).to.equal(1000);
   });
 });

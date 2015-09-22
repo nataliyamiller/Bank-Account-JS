@@ -1,0 +1,13 @@
+#show-account-info {
+  display: none;
+  text-align: center;
+}
+
+#show-form {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px;
+}

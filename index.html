@@ -12,7 +12,8 @@
       <h1>Best Bank</h1>
 
       <div class="row">
-        <div class="col-md-4">
+        <!-- <div class="col-md-4"> -->
+          <div id="show-form">
           <h2>Create an account:</h2>
           <form id="new-account">
             <div class="form-group">
@@ -27,13 +28,19 @@
               <label for="deposit-amount">Deposit amount</label>
               <input type="number" class="form-control" id="deposit-amount">
             </div>
-            <button type="submit" class="btn">Create account</button>
+            <button type="submit" class="btn" id="create">Create account</button>
           </form>
         </div>
+        <!-- </div> -->
 
-        <div class="col-md-8">
-          <h2>Account details:</h2>
+        <!-- <div class="col-md-8"> -->
+          <div id="show-account-info">
+          <h2></h2>
+          <p></p>
+          <span class="btn btn-primary" id="add-more-money">Deposit money</span>
+          <span class="btn btn-primary" id="withdraw-money">Withdraw money</span>
         </div>
+      <!-- </div> -->
 
       </div>
     </div>
