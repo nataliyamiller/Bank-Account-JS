@@ -8,3 +8,7 @@ function BankAccount(firstName, lastName, initialDeposit) {
 BankAccount.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
+
+BankAccount.prototype.remainingBalance = function() {
+  return this.initialDeposit - this.withdrawal;
+}

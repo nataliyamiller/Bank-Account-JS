@@ -11,4 +11,9 @@ describe('BankAccount', function() {
     var testBankAccount = new BankAccount("Nata", "Miller", 100);
     expect(testBankAccount.fullName()).to.equal("Nata Miller");
   });
+
+  it("returns the remaining balance on the account", function() {
+    var testBankAccount = new BankAccount("Nata", "Miller", 100);
+    expect(testBankAccount.remainingBalance()).to.equal(100);
+  });
 });
