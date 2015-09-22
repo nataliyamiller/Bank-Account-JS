@@ -20,3 +20,13 @@ function resetFields() {
   $("input#deposit-amount").val("");
   $("input.withdrawal-amount").val("");
 }
+
+$("form#new-account").submit(function(event) {
+  even.preventDefault();
+
+  var inputtedFirstName = $("input#first-name").val();
+  var inputtedLastName = $("input#last-name").val();
+  var inputtedDeposit = parseInt($("input#deposit-amount").val());
+
+  var newAccount = new BankAccount(inputtedFirstName, inputtedLastName, inputtedDeposit);
+});
