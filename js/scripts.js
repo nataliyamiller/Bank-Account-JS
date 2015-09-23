@@ -28,6 +28,18 @@ function addMoney() {
           '</div>';
 }
 
+function getMoney() {
+  return '<div id="show-form-2">' +
+          '<h2>Withdraw money:</h2>'+
+          '<form id="withdraw-more-money">' +
+          '<div class="form-group">' +
+          '<label for="amount2"> Enter amount to be withdrawn </label>' +
+          ' <input type="number" id="amount2">' +
+          '</div>' +
+          '</form>' +
+          '</div>';
+}
+
 function resetFields() {
   $("input#new-first-name").val("");
   $("input#new-last-name").val("");
@@ -52,14 +64,26 @@ $(document).ready(function(){
     $("#add-more-money").click(function() {
       $(addMoney()).insertBefore("#add-more-money");
       $(this).off();
-      // $(this).click(function(){
       $("#add-more-money").click(function(event) {
         var enteredDeposit = parseInt($("input#amount1").val());
         var newBalance = newAccount.addDeposit(enteredDeposit);
         $("#show-account-info p").text("Your current account balance: $" + newBalance);
+        $("#add-another-deposit").get(0).reset();
       });
-      // });
     });
+
+    $("#withdraw-money").click(function() {
+    $(getMoney()).insertBefore("#withdraw-money");
+    $(this).off();
+    $("#withdraw-money").click(function(event) {
+      var withdrawalAmount = parseInt($("input#amount2").val());
+      var remainBalance = newAccount.withdrawMoney(withdrawalAmount);
+      $("#show-account-info p").text("Your current account balance: $" + remainBalance);
+      $("#withdraw-more-money").get(0).reset();
+    });
+  });
+
+
 
     event.preventDefault();
   });
